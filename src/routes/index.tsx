@@ -236,24 +236,6 @@ function Portfolio() {
                     <Phone className="h-4 w-4" /> {profile.phone}
                   </a>
                 </li>
-                <li>
-                  <a
-                    href={profile.instagram}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-3 transition hover:text-accent-foreground"
-                  >
-                    <Instagram className="h-4 w-4" /> Instagram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={profile.resumeUrl}
-                    className="inline-flex items-center gap-3 transition hover:text-accent-foreground"
-                  >
-                    <Download className="h-4 w-4" /> Download resume (PDF)
-                  </a>
-                </li>
               </ul>
             </div>
 
