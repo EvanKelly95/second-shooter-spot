@@ -6,8 +6,8 @@ export const profile = {
   location: "Atlantic Highlands, NJ",
   age: 31,
   transportation: "Reliable",
-  email: "hello@example.com", // replace with your email
-  phone: "+1 (555) 123-4567", // replace with your phone
+  email: "iamevankelly@gmail.com",
+  phone: "908 892 6802 (call or text)",
   instagram: "https://instagram.com/your-handle", // replace
   socials: [
     { label: "Instagram", href: "https://instagram.com/your-handle" },

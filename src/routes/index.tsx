@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Phone, Instagram, Download, ArrowRight, MapPin } from "lucide-react";
+import { Mail, Phone, ArrowRight, MapPin } from "lucide-react";
 import {
   profile,
   about,
@@ -10,46 +10,17 @@ import {
   heroImage,
 } from "@/data/portfolio";
 import { Lightbox } from "@/components/Lightbox";
-import { ContactForm } from "@/components/ContactForm";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const nav = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Gear", href: "#equipment" },
-  { label: "Contact", href: "#contact" },
-];
 
 function Portfolio() {
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Nav */}
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#top" className="font-serif text-lg tracking-wide">
-            Evan Kelly
-          </a>
-          <nav className="hidden gap-8 text-xs uppercase tracking-[0.2em] text-muted-foreground md:flex">
-            {nav.map((n) => (
-              <a key={n.href} href={n.href} className="transition hover:text-foreground">
-                {n.label}
-              </a>
-            ))}
-          </nav>
-          <a
-            href={profile.resumeUrl}
-            className="hidden items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground transition hover:text-foreground md:inline-flex"
-          >
-            <Download className="h-3.5 w-3.5" /> Resume
-          </a>
-        </div>
-      </header>
 
       {/* Intro */}
       <section id="top" className="mx-auto max-w-6xl px-6 pt-16 pb-20 md:pt-24 md:pb-28">
@@ -234,59 +205,37 @@ function Portfolio() {
       {/* Contact */}
       <section id="contact" className="border-t border-border/60 bg-secondary/40">
         <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="grid gap-12 md:grid-cols-2 md:gap-20">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-accent-foreground">
-                Contact
-              </p>
-              <h2 className="mt-4 font-serif text-3xl md:text-4xl">
-                Have a wedding coming up?
-              </h2>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
-                If you're a lead photographer or videographer looking for a reliable second
-                shooter or assistant, I'd love to hear about your upcoming dates. Happy to
-                travel from the Jersey Shore area.
-              </p>
+          <div className="max-w-xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent-foreground">
+              Contact
+            </p>
+            <h2 className="mt-4 font-serif text-3xl md:text-4xl">
+              Have a wedding coming up?
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+              If you're a lead photographer or videographer looking for a reliable second
+              shooter or assistant, I'd love to hear about your upcoming dates. Happy to
+              travel from the Jersey Shore area.
+            </p>
 
-              <ul className="mt-10 space-y-3 text-sm">
-                <li>
-                  <a
-                    href={`mailto:${profile.email}`}
-                    className="inline-flex items-center gap-3 transition hover:text-accent-foreground"
-                  >
-                    <Mail className="h-4 w-4" /> {profile.email}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`tel:${profile.phone.replace(/\s/g, "")}`}
-                    className="inline-flex items-center gap-3 transition hover:text-accent-foreground"
-                  >
-                    <Phone className="h-4 w-4" /> {profile.phone}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={profile.instagram}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-3 transition hover:text-accent-foreground"
-                  >
-                    <Instagram className="h-4 w-4" /> Instagram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={profile.resumeUrl}
-                    className="inline-flex items-center gap-3 transition hover:text-accent-foreground"
-                  >
-                    <Download className="h-4 w-4" /> Download resume (PDF)
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <ContactForm />
+            <ul className="mt-10 space-y-3 text-sm">
+              <li>
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="inline-flex items-center gap-3 transition hover:text-accent-foreground"
+                >
+                  <Mail className="h-4 w-4" /> {profile.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:9088926802"
+                  className="inline-flex items-center gap-3 transition hover:text-accent-foreground"
+                >
+                  <Phone className="h-4 w-4" /> {profile.phone}
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
