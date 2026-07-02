@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Phone, Instagram, Download, ArrowRight, MapPin } from "lucide-react";
+import { Mail, Phone, ArrowRight, MapPin } from "lucide-react";
 import {
   profile,
   about,
