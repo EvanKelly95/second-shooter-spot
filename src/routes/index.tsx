@@ -21,27 +21,6 @@ function Portfolio() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Nav */}
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/85 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#top" className="font-serif text-lg tracking-wide">
-            Evan Kelly
-          </a>
-          <nav className="hidden gap-8 text-xs uppercase tracking-[0.2em] text-muted-foreground md:flex">
-            {nav.map((n) => (
-              <a key={n.href} href={n.href} className="transition hover:text-foreground">
-                {n.label}
-              </a>
-            ))}
-          </nav>
-          <a
-            href={profile.resumeUrl}
-            className="hidden items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground transition hover:text-foreground md:inline-flex"
-          >
-            <Download className="h-3.5 w-3.5" /> Resume
-          </a>
-        </div>
-      </header>
 
       {/* Intro */}
       <section id="top" className="mx-auto max-w-6xl px-6 pt-16 pb-20 md:pt-24 md:pb-28">
