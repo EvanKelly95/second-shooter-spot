@@ -10,7 +10,6 @@ import {
   heroImage,
 } from "@/data/portfolio";
 import { Lightbox } from "@/components/Lightbox";
-import { ContactForm } from "@/components/ContactForm";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
