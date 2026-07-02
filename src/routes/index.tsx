@@ -15,13 +15,6 @@ export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-const nav = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Gear", href: "#equipment" },
-  { label: "Contact", href: "#contact" },
-];
 
 function Portfolio() {
   const [lightbox, setLightbox] = useState<number | null>(null);
