@@ -77,21 +77,32 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Evan Kelly — Photographer | Second Shooter & Assistant" },
+      {
+        name: "description",
+        content:
+          "Evan Kelly is a photographer based in Atlantic Highlands, NJ, available to assist, shadow, and second-shoot weddings for experienced photographers and videographers.",
+      },
+      { name: "author", content: "Evan Kelly" },
+      { property: "og:title", content: "Evan Kelly — Photographer" },
+      {
+        property: "og:description",
+        content:
+          "Available for second-shooter, assistant, and shadowing work with wedding photographers and videographers.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Evan Kelly Photography" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,
