@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, Phone, ArrowRight, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 import {
   profile,
   about,
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
 });
 
 
-function Portfolio() {
+export function Portfolio() {
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   return (
@@ -39,21 +39,6 @@ function Portfolio() {
               Available to assist, shadow, and second-shoot weddings alongside experienced
               photographers and videographers.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href="#work"
-                className="group inline-flex items-center gap-2 bg-foreground px-6 py-3 text-xs uppercase tracking-[0.2em] text-background transition hover:bg-foreground/85"
-              >
-                View My Work
-                <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 border border-foreground px-6 py-3 text-xs uppercase tracking-[0.2em] text-foreground transition hover:bg-foreground hover:text-background"
-              >
-                Contact Me
-              </a>
-            </div>
           </div>
           <div className="md:col-span-3">
             <div className="relative overflow-hidden">
