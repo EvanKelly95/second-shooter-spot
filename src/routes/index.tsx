@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import {
   profile,
@@ -9,52 +8,47 @@ import {
   equipment,
   heroImage,
 } from "@/data/portfolio";
-import { Lightbox } from "@/components/Lightbox";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
 });
 
-
 export function Portfolio() {
-  const [lightbox, setLightbox] = useState<number | null>(null);
-
   return (
-    <div className="min-h-screen bg-background text-foreground">
-
-      {/* Intro */}
-      <section id="top" className="mx-auto max-w-6xl px-6 pt-16 pb-20 md:pt-24 md:pb-28">
-        <div className="grid gap-12 md:grid-cols-5 md:gap-16">
-          <div className="md:col-span-2 flex flex-col justify-center">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent-foreground">
+    <div className="min-h-screen overflow-hidden bg-background text-foreground">
+      <section id="top" className="relative min-h-screen">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(176,104,63,0.22),transparent_32%),linear-gradient(135deg,rgba(19,14,12,0.96),rgba(36,27,22,0.84)_48%,rgba(16,13,12,0.98))]" />
+        <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 py-12 md:grid-cols-[0.88fr_1.12fr] md:px-10 lg:px-14">
+          <div className="z-10 max-w-xl py-8">
+            <p className="text-xs uppercase tracking-[0.42em] text-accent">
               Photographer · Second Shooter
             </p>
-            <h1 className="mt-6 font-serif text-5xl leading-[1.05] md:text-6xl">
+            <h1 className="mt-7 font-serif text-6xl leading-[0.95] text-primary md:text-8xl">
               {profile.name}
             </h1>
-            <p className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-              <MapPin className="h-3.5 w-3.5" /> {profile.location}
+            <p className="mt-6 flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-muted-foreground">
+              <MapPin className="h-4 w-4 text-accent" /> {profile.location}
             </p>
-            <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground">
+            <p className="mt-10 max-w-lg text-xl leading-relaxed text-foreground/86">
               Available to assist, shadow, and second-shoot weddings alongside experienced
               photographers and videographers.
             </p>
+            <div className="mt-10 h-px w-28 bg-accent" />
           </div>
-          <div className="md:col-span-3">
-            <div className="relative overflow-hidden">
-              <img
-                src={heroImage}
-                alt="Featured photograph by Evan Kelly"
-                className="aspect-[4/5] w-full object-cover"
-                loading="eager"
-              />
-            </div>
+
+          <div className="relative z-0">
+            <img
+              src={heroImage}
+              alt="Featured photograph by Evan Kelly"
+              className="mx-auto max-h-[82vh] w-full object-contain shadow-[0_34px_90px_rgba(0,0,0,0.38)]"
+              loading="eager"
+            />
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-white/10" />
           </div>
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" className="border-t border-border/60 bg-secondary/40">
+      <section id="about" className="border-t border-border/60 bg-secondary/35">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 md:grid-cols-3 md:py-28">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-accent-foreground">About</p>
@@ -82,7 +76,6 @@ export function Portfolio() {
         </div>
       </section>
 
-      {/* Experience */}
       <section id="experience" className="border-t border-border/60">
         <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
           <div className="grid gap-12 md:grid-cols-3">
@@ -114,50 +107,36 @@ export function Portfolio() {
         </div>
       </section>
 
-      {/* Work */}
-      <section id="work" className="border-t border-border/60 bg-secondary/40">
-        <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-accent-foreground">
-                Selected Work
-              </p>
-              <h2 className="mt-4 font-serif text-3xl md:text-4xl">A small edit.</h2>
-            </div>
-            <p className="max-w-sm text-sm text-muted-foreground">
-              Click any image to view larger.
+      <section id="work" className="border-t border-border/60 bg-secondary/35">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28 lg:px-14">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent-foreground">
+              Selected Work
+            </p>
+            <h2 className="mt-4 font-serif text-3xl md:text-4xl">Full-frame previews.</h2>
+            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+              A clean edit of the full photos, shown without hidden crops, titles, or extra clicks.
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 columns-1 gap-5 sm:columns-2 lg:columns-3">
             {gallery.map((img, i) => (
-              <button
+              <figure
                 key={i}
-                onClick={() => setLightbox(i)}
-                className="group relative block overflow-hidden bg-muted text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-                aria-label={`Open ${img.title}`}
+                className="mb-5 break-inside-avoid overflow-hidden bg-card/70 p-2 shadow-[0_22px_60px_rgba(0,0,0,0.18)] ring-1 ring-border/70"
               >
                 <img
                   src={img.src}
-                  alt={`${img.title} — ${img.caption ?? img.category}`}
+                  alt={img.caption ?? img.category}
                   loading="lazy"
-                  className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                  className="h-auto w-full object-contain"
                 />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 transition group-hover:opacity-100">
-                  <div>
-                    <p className="font-serif text-lg text-white">{img.title}</p>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/70">
-                      {img.category}
-                    </p>
-                  </div>
-                </div>
-              </button>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Equipment */}
       <section id="equipment" className="border-t border-border/60">
         <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
           <div className="grid gap-12 md:grid-cols-3">
@@ -187,8 +166,7 @@ export function Portfolio() {
         </div>
       </section>
 
-      {/* Contact */}
-      <section id="contact" className="border-t border-border/60 bg-secondary/40">
+      <section id="contact" className="border-t border-border/60 bg-secondary/35">
         <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
           <div className="max-w-xl">
             <p className="text-xs uppercase tracking-[0.3em] text-accent-foreground">
@@ -231,13 +209,6 @@ export function Portfolio() {
           <p className="uppercase tracking-[0.2em]">Atlantic Highlands, NJ</p>
         </div>
       </footer>
-
-      <Lightbox
-        images={gallery}
-        index={lightbox}
-        onClose={() => setLightbox(null)}
-        onNavigate={setLightbox}
-      />
     </div>
   );
 }
