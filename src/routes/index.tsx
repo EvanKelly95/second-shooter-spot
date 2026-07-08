@@ -36,16 +36,6 @@ export function Portfolio() {
             <p className="mt-6 flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-muted-foreground">
               <MapPin className="h-4 w-4 text-accent" /> {profile.location}
             </p>
-            <p className="mt-10 max-w-xl text-xl leading-relaxed text-foreground/90 md:text-2xl">
-              Available to assist, shadow, and second-shoot weddings alongside experienced
-              photographers and videographers.
-            </p>
-            <div className="mt-10 flex items-center gap-5">
-              <div className="h-px w-28 bg-accent" />
-              <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
-                Weddings · portraits · event support
-              </p>
-            </div>
           </div>
         </div>
       </section>
