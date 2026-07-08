@@ -16,11 +16,11 @@ export const Route = createFileRoute("/")({
 export function Portfolio() {
   return (
     <div className="min-h-screen overflow-hidden bg-background text-foreground">
-      <section id="top" className="relative min-h-screen">
+      <section id="top" className="relative min-h-screen bg-[#100d0c]">
         <img
           src={heroImage}
           alt="Featured photograph by Evan Kelly"
-          className="absolute inset-0 h-full w-full object-cover object-[62%_bottom]"
+          className="absolute inset-0 h-full w-full object-contain object-center md:object-right"
           loading="eager"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,13,12,0.96)_0%,rgba(16,13,12,0.78)_34%,rgba(16,13,12,0.22)_66%,rgba(16,13,12,0.08)_100%)]" />
