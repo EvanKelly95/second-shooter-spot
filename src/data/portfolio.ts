@@ -1,5 +1,7 @@
 // Edit this file to update all content across the site.
 
+const portfolioImage = (fileName: string) => `${import.meta.env.BASE_URL}portfolio/${fileName}`;
+
 export const profile = {
   name: "Evan Kelly",
   title: "Photographer",
@@ -48,68 +50,84 @@ export const experience = [
 
 export const gallery = [
   {
-    title: "First Light",
-    category: "Portrait",
-    caption: "Natural window light, early morning.",
-    camera: "Sony a7S III",
-    lens: "Sony 35mm f/1.8",
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    title: "Getting Ready",
+    title: "Garden Portrait",
     category: "Wedding",
-    caption: "Quiet moment before the ceremony.",
+    caption: "Soft outdoor portrait with natural framing.",
     camera: "Sony a7S III",
     lens: "Sigma 24-70mm f/2.8",
-    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=80",
+    src: portfolioImage("DSC07696.jpg"),
   },
   {
-    title: "The Toast",
-    category: "Reception",
-    caption: "Available light, high ISO.",
+    title: "Ceremony Steps",
+    category: "Wedding",
+    caption: "A quiet directed moment on location.",
+    camera: "Sony a7S III",
+    lens: "Sigma 24-70mm f/2.8",
+    src: portfolioImage("DSC07462.jpg"),
+  },
+  {
+    title: "Balcony Portrait",
+    category: "Wedding",
+    caption: "Natural light portrait with architectural framing.",
+    camera: "Sony a7S II",
+    lens: "Sigma 24-70mm f/2.8",
+    src: portfolioImage("DSC07675.jpg"),
+  },
+  {
+    title: "Bride Portrait",
+    category: "Wedding",
+    caption: "Candid-feeling portrait between formal moments.",
+    camera: "Sony a7S III",
+    lens: "Sigma 24-70mm f/2.8",
+    src: portfolioImage("DSC07670.jpg"),
+  },
+  {
+    title: "Couple Moment",
+    category: "Wedding",
+    caption: "A relaxed couple portrait outdoors.",
+    camera: "Sony a7S III",
+    lens: "Sigma 24-70mm f/2.8",
+    src: portfolioImage("DSC07685.jpg"),
+  },
+  {
+    title: "Bridge Walk",
+    category: "Family",
+    caption: "Documentary-style family movement.",
+    camera: "Sony a7S III",
+    lens: "Sigma 24-70mm f/2.8",
+    src: portfolioImage("Bridge-12.jpg"),
+  },
+  {
+    title: "Family Portrait",
+    category: "Family",
+    caption: "Warm family portrait with natural light.",
     camera: "Sony a7S II",
     lens: "Sony 35mm f/1.8",
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80",
+    src: portfolioImage("Bridge-24.jpg"),
   },
   {
-    title: "Ceremony",
-    category: "Wedding",
-    caption: "Backlit exchange of vows.",
-    camera: "Sony a7S III",
-    lens: "Sigma 24-70mm f/2.8",
-    src: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    title: "Details",
-    category: "Editorial",
-    caption: "Rings and florals, natural light.",
+    title: "Bridge Portrait",
+    category: "Family",
+    caption: "Guided family portrait on location.",
     camera: "Sony a7S III",
     lens: "Sony 35mm f/1.8",
-    src: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1600&q=80",
+    src: portfolioImage("Bridge-15.jpg"),
   },
   {
-    title: "First Dance",
-    category: "Reception",
-    caption: "Mixed tungsten and LED.",
-    camera: "Sony a7S III",
-    lens: "Sigma 24-70mm f/2.8",
-    src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    title: "Candid",
-    category: "Documentary",
-    caption: "Between formal moments.",
-    camera: "Sony a7S II",
-    lens: "Sony 35mm f/1.8",
-    src: "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    title: "Portrait",
-    category: "Portrait",
-    caption: "Golden hour, on-location.",
+    title: "Bridge Candid",
+    category: "Family",
+    caption: "A natural interaction during a portrait session.",
     camera: "Sony a7S III",
     lens: "Sony 35mm f/1.8",
-    src: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1600&q=80",
+    src: portfolioImage("Bridge-19.jpg"),
+  },
+  {
+    title: "Golden Walk",
+    category: "Family",
+    caption: "Late-day light and movement.",
+    camera: "Sony a7S III",
+    lens: "Sony 35mm f/1.8",
+    src: portfolioImage("Bridge-17.jpg"),
   },
 ];
 
@@ -129,4 +147,4 @@ export const equipment = [
 ];
 
 export const heroImage =
-  "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=80";
+  portfolioImage("DSC07696.jpg");
