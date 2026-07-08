@@ -20,7 +20,7 @@ export function Portfolio() {
         <img
           src={heroImage}
           alt="Featured photograph by Evan Kelly"
-          className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
+          className="absolute inset-0 h-full w-full object-cover object-[62%_bottom]"
           loading="eager"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,13,12,0.96)_0%,rgba(16,13,12,0.78)_34%,rgba(16,13,12,0.22)_66%,rgba(16,13,12,0.08)_100%)]" />
