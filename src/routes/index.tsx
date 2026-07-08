@@ -17,33 +17,35 @@ export function Portfolio() {
   return (
     <div className="min-h-screen overflow-hidden bg-background text-foreground">
       <section id="top" className="relative min-h-screen">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(176,104,63,0.22),transparent_32%),linear-gradient(135deg,rgba(19,14,12,0.96),rgba(36,27,22,0.84)_48%,rgba(16,13,12,0.98))]" />
-        <div className="relative mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 py-12 md:grid-cols-[0.88fr_1.12fr] md:px-10 lg:px-14">
-          <div className="z-10 max-w-xl py-8">
-            <p className="text-xs uppercase tracking-[0.42em] text-accent">
+        <img
+          src={heroImage}
+          alt="Featured photograph by Evan Kelly"
+          className="absolute inset-0 h-full w-full object-cover object-[62%_center]"
+          loading="eager"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(16,13,12,0.96)_0%,rgba(16,13,12,0.78)_34%,rgba(16,13,12,0.22)_66%,rgba(16,13,12,0.08)_100%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_48%,rgba(255,235,210,0.12),transparent_24%),radial-gradient(circle_at_18%_22%,rgba(176,104,63,0.25),transparent_30%)]" />
+        <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-6 py-12 md:px-10 lg:px-14">
+          <div className="max-w-2xl py-8">
+            <p className="text-xs uppercase tracking-[0.42em] text-accent drop-shadow">
               Photographer · Second Shooter
             </p>
-            <h1 className="mt-7 font-serif text-6xl leading-[0.95] text-primary md:text-8xl">
+            <h1 className="mt-7 max-w-[8ch] font-serif text-7xl leading-[0.88] text-primary drop-shadow-[0_6px_28px_rgba(0,0,0,0.55)] md:text-9xl">
               {profile.name}
             </h1>
             <p className="mt-6 flex items-center gap-2 text-sm uppercase tracking-[0.18em] text-muted-foreground">
               <MapPin className="h-4 w-4 text-accent" /> {profile.location}
             </p>
-            <p className="mt-10 max-w-lg text-xl leading-relaxed text-foreground/86">
+            <p className="mt-10 max-w-xl text-xl leading-relaxed text-foreground/90 md:text-2xl">
               Available to assist, shadow, and second-shoot weddings alongside experienced
               photographers and videographers.
             </p>
-            <div className="mt-10 h-px w-28 bg-accent" />
-          </div>
-
-          <div className="relative z-0">
-            <img
-              src={heroImage}
-              alt="Featured photograph by Evan Kelly"
-              className="mx-auto max-h-[82vh] w-full object-contain shadow-[0_34px_90px_rgba(0,0,0,0.38)]"
-              loading="eager"
-            />
-            <div className="pointer-events-none absolute inset-0 ring-1 ring-white/10" />
+            <div className="mt-10 flex items-center gap-5">
+              <div className="h-px w-28 bg-accent" />
+              <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
+                Weddings · portraits · event support
+              </p>
+            </div>
           </div>
         </div>
       </section>
