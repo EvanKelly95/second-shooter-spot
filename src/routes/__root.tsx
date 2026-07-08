@@ -81,14 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Evan Kelly is a photographer based in Atlantic Highlands, NJ, available to assist, shadow, and second-shoot weddings for experienced photographers and videographers.",
+          "Evan Kelly is a photographer based in Atlantic Highlands, NJ, with a modern portfolio of wedding, portrait, and event work.",
       },
       { name: "author", content: "Evan Kelly" },
       { property: "og:title", content: "Evan Kelly — Photographer" },
       {
         property: "og:description",
         content:
-          "Available for second-shooter, assistant, and shadowing work with wedding photographers and videographers.",
+          "A modern photography portfolio featuring wedding, portrait, and event work by Evan Kelly.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Evan Kelly Photography" },
