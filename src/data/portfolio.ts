@@ -54,7 +54,7 @@ export const gallery = [
     category: "Wedding",
     caption: "Soft outdoor portrait with natural framing.",
     camera: "Sony a7S III",
-    lens: "Sigma 24-70mm f/2.8",
+    lens: "24-70mm",
     src: portfolioImage("DSC07696.jpg"),
   },
   {
@@ -62,15 +62,15 @@ export const gallery = [
     category: "Wedding",
     caption: "A quiet directed moment on location.",
     camera: "Sony a7S III",
-    lens: "Sigma 24-70mm f/2.8",
+    lens: "24-70mm",
     src: portfolioImage("DSC07462.jpg"),
   },
   {
     title: "Balcony Portrait",
     category: "Wedding",
     caption: "Natural light portrait with architectural framing.",
-    camera: "Sony a7S II",
-    lens: "Sigma 24-70mm f/2.8",
+    camera: "Sony a7S III",
+    lens: "24-70mm",
     src: portfolioImage("DSC07675.jpg"),
   },
   {
@@ -78,7 +78,7 @@ export const gallery = [
     category: "Wedding",
     caption: "Candid-feeling portrait between formal moments.",
     camera: "Sony a7S III",
-    lens: "Sigma 24-70mm f/2.8",
+    lens: "24-70mm",
     src: portfolioImage("DSC07670.jpg"),
   },
   {
@@ -86,7 +86,7 @@ export const gallery = [
     category: "Wedding",
     caption: "A relaxed couple portrait outdoors.",
     camera: "Sony a7S III",
-    lens: "Sigma 24-70mm f/2.8",
+    lens: "24-70mm",
     src: portfolioImage("DSC07685.jpg"),
   },
   {
@@ -94,15 +94,15 @@ export const gallery = [
     category: "Family",
     caption: "Documentary-style family movement.",
     camera: "Sony a7S III",
-    lens: "Sigma 24-70mm f/2.8",
+    lens: "24-70mm",
     src: portfolioImage("Bridge-12.jpg"),
   },
   {
     title: "Family Portrait",
     category: "Family",
     caption: "Warm family portrait with natural light.",
-    camera: "Sony a7S II",
-    lens: "Sony 35mm f/1.8",
+    camera: "Sony a7S III",
+    lens: "24-70mm",
     src: portfolioImage("Bridge-24.jpg"),
   },
   {
@@ -110,7 +110,7 @@ export const gallery = [
     category: "Family",
     caption: "Guided family portrait on location.",
     camera: "Sony a7S III",
-    lens: "Sony 35mm f/1.8",
+    lens: "24-70mm",
     src: portfolioImage("Bridge-15.jpg"),
   },
   {
@@ -118,16 +118,8 @@ export const gallery = [
     category: "Family",
     caption: "A natural interaction during a portrait session.",
     camera: "Sony a7S III",
-    lens: "Sony 35mm f/1.8",
+    lens: "24-70mm",
     src: portfolioImage("Bridge-19.jpg"),
-  },
-  {
-    title: "Golden Walk",
-    category: "Family",
-    caption: "Late-day light and movement.",
-    camera: "Sony a7S III",
-    lens: "Sony 35mm f/1.8",
-    src: portfolioImage("Bridge-17.jpg"),
   },
 ];
 
