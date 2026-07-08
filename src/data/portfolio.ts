@@ -124,8 +124,8 @@ export const gallery = [
 ];
 
 export const equipment = [
-  { label: "Camera Bodies", items: ["Sony a7S III", "Sony a7S II"] },
-  { label: "Lenses", items: ["Sigma 24-70mm f/2.8", "Sony 35mm f/1.8"] },
+  { label: "Camera Body", items: ["Sony a7S III"] },
+  { label: "Lens", items: ["24-70mm"] },
   { label: "Lighting", items: ["On-camera light"] },
   {
     label: "Other",
