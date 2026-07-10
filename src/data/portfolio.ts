@@ -19,9 +19,8 @@ export const profile = {
 };
 
 export const about = [
-  "I'm a photographer based in Atlantic Highlands, NJ, looking to assist, shadow, and second-shoot with experienced wedding photographers and videographers. My goal is straightforward: support your workflow, learn from how you work, and contribute without getting in the way.",
-  "I've spent years photographing people in fast-moving, high-pressure environments — from cruise ship galas to seasonal senior portrait work with strict production standards. I show up early, I take direction well, and I understand that on a wedding day the lead's vision is the only one that matters.",
-  "I'm reliable, punctual, and easy to work with. I have my own transportation and gear, and I'm comfortable with long days, tight timelines, and last-minute changes.",
+  "I bring 10+ years of photography and videography experience to fast-moving, people-focused work. I am comfortable taking direction, matching a lead photographer's pace, and supporting the day without getting in the way.",
+  "If a specific setup would help me serve your workflow better, I am open to investing in additional equipment. I am also happy to share videography work if you have a need for wedding video support.",
 ];
 
 export const experience = [
@@ -38,13 +37,6 @@ export const experience = [
     period: "2018",
     description:
       "Covered Gala dinners table-to-table, capturing group photos in a dense, low-light dining room. Between services, worked the ship shooting candid moments and offering portraits to guests — long days, constant reading of the room, and a lot of quick rapport with strangers.",
-  },
-  {
-    role: "Related Experience",
-    company: "Events, portraits & production",
-    period: "Ongoing",
-    description:
-      "Event and candid coverage, on-location portraits, customer-facing work, production assistance, and post-processing in Adobe Lightroom and Photoshop. Comfortable working under pressure and adapting to a lead's style and workflow.",
   },
 ];
 
