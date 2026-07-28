@@ -19,8 +19,8 @@ export const profile = {
 };
 
 export const about = [
-  "I bring 10+ years of photography and videography experience to fast-moving, people-focused work. I am comfortable taking direction, matching a lead photographer's pace, and supporting the day without getting in the way.",
-  "If a specific setup would help me serve your workflow better, I am open to investing in additional equipment. I am also happy to share videography work if you have a need for wedding video support.",
+  "I bring 10+ years of photography and cinematography experience to fast-moving, people-focused productions. Whether I am creating stills, filming motion, or supporting a lead creative, I take direction well, adapt quickly to the pace of the day, and stay focused on making every frame count.",
+  "I am confident in high-pressure environments where timing, coverage, and client comfort all matter at once. My goal is to capture the strongest possible photo and video moments while keeping the experience relaxed, respectful, and enjoyable for the people in front of the camera. If a specific setup would help me serve your workflow better, I am open to investing in additional equipment.",
 ];
 
 export const experience = [
