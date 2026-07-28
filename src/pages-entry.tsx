@@ -59,11 +59,11 @@ function Layout({ page, children }: { page: Page; children: ReactNode }) {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-30 border-b border-white/10 bg-[#17110e]/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-5 py-4 md:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-5 py-4 md:flex-row md:items-center md:justify-between md:gap-5 md:px-8">
           <a href={basePath} className="font-serif text-2xl leading-none tracking-[0.04em] text-primary md:text-3xl">
             Evan Kelly
           </a>
-          <nav className="flex items-center gap-3 overflow-x-auto text-[0.68rem] uppercase tracking-[0.16em] md:gap-6 md:text-xs" aria-label="Primary navigation">
+          <nav className="grid grid-cols-2 gap-x-5 gap-y-2 text-[0.68rem] uppercase tracking-[0.13em] sm:flex sm:items-center sm:gap-5 md:gap-6 md:text-xs" aria-label="Primary navigation">
             {navItems.map((item) => (
               <a key={item.page} href={asset(item.href)} className={`whitespace-nowrap transition ${page === item.page ? "text-[#e3a073]" : "text-[#eee4d8]/68 hover:text-[#eee4d8]"}`}>
                 {item.label}
@@ -127,13 +127,13 @@ function PortfolioVideo({ source, title, poster }: { source: string; title: stri
   const player = useRef<HTMLVideoElement>(null);
   const resumeAt = useRef(0);
   const resumePlaying = useRef(false);
-  const [quality, setQuality] = useState<"480" | "720">("720");
+  const [quality, setQuality] = useState<"480" | "720" | "1080">("1080");
 
   useEffect(() => {
     player.current?.load();
   }, [quality]);
 
-  const changeQuality = (nextQuality: "480" | "720") => {
+  const changeQuality = (nextQuality: "480" | "720" | "1080") => {
     const element = player.current;
     resumeAt.current = element?.currentTime ?? 0;
     resumePlaying.current = Boolean(element && !element.paused);
@@ -146,7 +146,8 @@ function PortfolioVideo({ source, title, poster }: { source: string; title: stri
     </video>
     <div className="flex items-center justify-end gap-3 border-t border-white/10 bg-[#17110e] px-4 py-3 text-xs text-[#eee4d8]/70">
       <label htmlFor={`${source}-quality`} className="uppercase tracking-[.15em]">Quality</label>
-      <select id={`${source}-quality`} value={quality} onChange={(event) => changeQuality(event.target.value as "480" | "720")} className="bg-transparent text-sm text-[#eee4d8] outline-none">
+      <select id={`${source}-quality`} value={quality} onChange={(event) => changeQuality(event.target.value as "480" | "720" | "1080")} className="bg-transparent text-sm text-[#eee4d8] outline-none">
+        <option value="1080">1080p</option>
         <option value="720">720p</option>
         <option value="480">480p</option>
       </select>
