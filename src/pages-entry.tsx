@@ -31,10 +31,10 @@ const photoCollections = [
 ];
 
 const videos = [
-  { title: "Please You Music Video", source: "please-you", description: "A featured music video presented as a web-optimized portfolio cut." },
-  { title: "Mad Times Music Video", source: "mad-times", description: "A narrative-forward music video with an emphasis on energy, scene coverage, and editing flow." },
-  { title: "Experiment 626 Music Video", source: "experiment-626", description: "A stylized music video focused on visual rhythm, performance coverage, and a polished final edit." },
-  { title: "Chrisean Rock Promo Video", source: "chrisean-promo", description: "A short-form promotional edit built around pace, personality, and immediate impact." },
+  { title: "Please You Music Video", source: "please-you", description: "Shot and edited on a Sony a7S III with a Sigma 24-70mm f/2.8, then finished in Adobe Premiere Pro. Built at a single Airbnb location, I led the visual direction and selected each performance, B-roll, and low-light setup to match the song's energy while keeping the artist's requested edit clean and effect-light." },
+  { title: "Mad Times Music Video", source: "mad-times", description: "Shot on a Sony a7S II with a Sony 35mm f/1.8 and finished in Adobe Premiere Pro and After Effects. I developed a narrative storyboard around the artist's internal struggles, directed three actors and an FPV drone operator, and shaped two locations with props into a fast-paced, effects-forward film." },
+  { title: "Experiment 626 Music Video", source: "experiment-626", description: "Shot on a Sony a7S III with a Sigma 24-70mm f/2.8 and edited in Adobe Premiere Pro and After Effects. Across three locations and multiple setups at each, I built a high-energy performance piece that highlights the artist's presence and wardrobe through a fast, glitch-driven visual style." },
+  { title: "Chrisean Rock Promo Video", source: "chrisean-promo", description: "Footage was captured by another videographer; I edited the final promo in Adobe Premiere Pro and After Effects. The piece introduces Chrisean Rock's livestreaming launch, balancing her planned stream content, faith, and current life context while also promoting her newly released single." },
 ];
 
 const experience = [
