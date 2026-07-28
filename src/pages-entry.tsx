@@ -1,9 +1,9 @@
-import { StrictMode, type ReactNode } from "react";
+import { StrictMode, type ReactNode, useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 import "./styles.css";
-import { about, equipment, experience, profile } from "./data/portfolio";
+import { about, equipment, experience as existingExperience, profile } from "./data/portfolio";
 
 type Page = "photography" | "cinematography" | "about" | "contact";
 
@@ -21,7 +21,7 @@ const photoCollections = [
   {
     name: "Himali & Brian",
     kind: "Courthouse wedding",
-    images: ["himali-brian-01.jpg", "himali-brian-02.jpg", "himali-brian-03.jpg", "himali-brian-04.jpg", "himali-brian-05.jpg"],
+    images: ["himali-brian-01.jpg", "himali-brian-02-crop.jpg", "himali-brian-03-crop.jpg", "himali-brian-04.jpg", "himali-brian-05.jpg"],
   },
   {
     name: "Family Portraits",
@@ -31,10 +31,20 @@ const photoCollections = [
 ];
 
 const videos = [
-  { title: "CR Kick Promo", id: "9fUQof8sexk", description: "A short-form promotional edit built around pace, personality, and immediate impact." },
-  { title: "Experiment 626", id: "ueg-gcaxFGQ", description: "A stylized music video where I focused on visual rhythm, performance coverage, and a polished final edit." },
-  { title: "Mad Times", id: "QWx8pEnrk9k", description: "A narrative-forward music video with an emphasis on energy, scene coverage, and editing flow." },
-  { title: "Please You", local: true, description: "A featured music video presented here as a web-optimized portfolio cut." },
+  { title: "Please You Music Video", source: "please-you", description: "A featured music video presented as a web-optimized portfolio cut." },
+  { title: "Mad Times Music Video", source: "mad-times", description: "A narrative-forward music video with an emphasis on energy, scene coverage, and editing flow." },
+  { title: "Experiment 626 Music Video", source: "experiment-626", description: "A stylized music video focused on visual rhythm, performance coverage, and a polished final edit." },
+  { title: "Chrisean Rock Promo Video", source: "chrisean-promo", description: "A short-form promotional edit built around pace, personality, and immediate impact." },
+];
+
+const experience = [
+  ...existingExperience,
+  {
+    role: "Freelance",
+    company: "Photo, film, and post-production",
+    period: "Ongoing",
+    description: "I have shot 50+ music videos, photographed artist events, family portraits, and courthouse weddings, and edited for large YouTubers and content creators. My editing work includes full-length YouTube films, shaping 40+ hours of raw footage into focused 30-45 minute final films.",
+  },
 ];
 
 function currentPage(): Page {
@@ -95,14 +105,12 @@ function GearList() {
 
 function PhotographyPage() {
   return <Layout page="photography">
-    <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#1a120f]">
-      <img src={asset("portfolio/himali-brian-05.jpg")} alt="Wedding portrait by Evan Kelly" className="absolute inset-0 -z-20 h-full w-full object-cover opacity-60" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(20,13,10,.94),rgba(20,13,10,.65),rgba(20,13,10,.25))]" />
-      <div className="mx-auto flex min-h-[64svh] max-w-7xl items-end px-5 py-16 md:min-h-[72svh] md:px-8 md:py-24">
-        <div className="max-w-xl"><p className="text-xs uppercase tracking-[0.3em] text-[#e3a073]">Wedding & portrait photography</p><h1 className="mt-5 font-serif text-6xl leading-[.85] text-primary sm:text-8xl">Honest moments, beautifully held.</h1><p className="mt-6 max-w-lg leading-relaxed text-[#eee4d8]/82">A growing collection of intimate wedding, portrait, and family work from around New Jersey.</p></div>
+    <section className="border-b border-white/10 bg-[#1a120f]">
+      <div className="mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-16">
+        <div className="overflow-hidden bg-[#100c0a]"><img src={asset("portfolio/himali-brian-05.jpg")} alt="Wedding portrait by Evan Kelly" className="h-auto max-h-[78svh] w-full object-contain" /></div>
+        <div className="mt-8 max-w-2xl"><p className="text-xs uppercase tracking-[0.3em] text-[#e3a073]">Wedding & portrait photography</p><h1 className="mt-5 font-serif text-6xl leading-[.85] text-primary sm:text-8xl">Honest moments, beautifully held.</h1><p className="mt-6 max-w-lg leading-relaxed text-[#eee4d8]/82">A growing collection of intimate wedding, portrait, and family work from around New Jersey.</p></div>
       </div>
     </section>
-    <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24"><GearList /></section>
     {photoCollections.map((collection) => <section key={collection.name} className="border-t border-white/10">
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
         <div className="mb-10 flex flex-col gap-2 md:flex-row md:items-end md:justify-between"><div><p className="text-xs uppercase tracking-[0.28em] text-[#e3a073]">Selected work</p><h2 className="mt-3 font-serif text-5xl text-primary">{collection.name}</h2></div><p className="text-sm text-muted-foreground">{collection.kind}</p></div>
@@ -110,11 +118,43 @@ function PhotographyPage() {
       </div>
     </section>)}
     <section className="border-t border-white/10 bg-[#211713]"><div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24"><div className="grid min-h-64 place-items-center border border-dashed border-[#e3a073]/35 bg-[#17100d] p-8 text-center"><div><p className="text-xs uppercase tracking-[0.28em] text-[#e3a073]">Next collection</p><h2 className="mt-3 font-serif text-5xl text-primary">Sam & Ruby</h2><p className="mt-4 text-sm text-muted-foreground">Photos coming soon.</p></div></div></div></section>
+    <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24"><SectionHeading eyebrow="Equipment" title="What I bring." /><div className="mt-10"><GearList /></div></section>
   </Layout>;
 }
 
+function PortfolioVideo({ source, title, poster }: { source: string; title: string; poster?: string }) {
+  const player = useRef<HTMLVideoElement>(null);
+  const resumeAt = useRef(0);
+  const resumePlaying = useRef(false);
+  const [quality, setQuality] = useState<"480" | "720">("720");
+
+  useEffect(() => {
+    player.current?.load();
+  }, [quality]);
+
+  const changeQuality = (nextQuality: "480" | "720") => {
+    const element = player.current;
+    resumeAt.current = element?.currentTime ?? 0;
+    resumePlaying.current = Boolean(element && !element.paused);
+    setQuality(nextQuality);
+  };
+
+  return <div className="overflow-hidden bg-black shadow-2xl">
+    <video ref={player} aria-label={title} className="aspect-video w-full" controls controlsList="nodownload" poster={poster ? asset(poster) : undefined} preload="metadata" onLoadedMetadata={(event) => { event.currentTarget.currentTime = resumeAt.current; if (resumePlaying.current) void event.currentTarget.play(); }}>
+      <source src={asset(`cinematography/${source}-${quality}.mp4`)} type="video/mp4" />
+    </video>
+    <div className="flex items-center justify-end gap-3 border-t border-white/10 bg-[#17110e] px-4 py-3 text-xs text-[#eee4d8]/70">
+      <label htmlFor={`${source}-quality`} className="uppercase tracking-[.15em]">Quality</label>
+      <select id={`${source}-quality`} value={quality} onChange={(event) => changeQuality(event.target.value as "480" | "720")} className="bg-transparent text-sm text-[#eee4d8] outline-none">
+        <option value="720">720p</option>
+        <option value="480">480p</option>
+      </select>
+    </div>
+  </div>;
+}
+
 function CinematographyPage() {
-  return <Layout page="cinematography"><section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24"><SectionHeading eyebrow="Cinematography" title="Films made to move." copy="Music, live moments, and story-driven work. Each piece is selected for its editing rhythm, visual coverage, and energy." /><div className="mt-14 grid gap-12">{videos.map((video, index) => <article key={video.title} className="grid gap-6 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start"><div className="overflow-hidden bg-black shadow-2xl">{video.local ? <video className="aspect-video w-full" controls poster={asset("cinematography/pleaseyou-poster.jpg")} preload="metadata"><source src={asset("cinematography/pleaseyou-reel.mp4")} type="video/mp4" /></video> : <iframe className="aspect-video w-full" src={`https://www.youtube-nocookie.com/embed/${video.id}`} title={video.title} loading={index === 0 ? "eager" : "lazy"} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />}</div><div><p className="text-xs uppercase tracking-[0.25em] text-[#e3a073]">Video work {String(index + 1).padStart(2, "0")}</p><h2 className="mt-3 font-serif text-4xl text-primary">{video.title}</h2><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{video.description}</p></div></article>)}</div></section><section className="border-t border-white/10 bg-[#211713]"><div className="mx-auto max-w-7xl px-5 py-16 md:px-8"><GearList /></div></section></Layout>;
+  return <Layout page="cinematography"><section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24"><SectionHeading eyebrow="Cinematography" title="Films made to move." copy="Music, live moments, and story-driven work. Each piece is selected for its editing rhythm, visual coverage, and energy." /><div className="mt-14 grid gap-12">{videos.map((video, index) => <article key={video.title} className="grid gap-6 border-t border-white/10 pt-8 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start"><PortfolioVideo source={video.source} title={video.title} poster={video.source === "please-you" ? "cinematography/pleaseyou-poster.jpg" : undefined} /><div><p className="text-xs uppercase tracking-[0.25em] text-[#e3a073]">Video work {String(index + 1).padStart(2, "0")}</p><h2 className="mt-3 font-serif text-4xl text-primary">{video.title}</h2><p className="mt-4 text-sm leading-relaxed text-muted-foreground">{video.description}</p></div></article>)}</div></section><section className="border-t border-white/10 bg-[#211713]"><div className="mx-auto max-w-7xl px-5 py-16 md:px-8"><GearList /></div></section></Layout>;
 }
 
 function AboutPage() {
@@ -127,6 +167,19 @@ function ContactPage() {
 
 function Deliverables({ title, items }: { title: string; items: string[] }) { return <article className="border border-white/10 bg-[#17110e] p-8"><p className="text-xs uppercase tracking-[.25em] text-[#e3a073]">Deliverables</p><h2 className="mt-3 font-serif text-4xl text-primary">{title}</h2><ul className="mt-7 space-y-4">{items.map((item) => <li key={item} className="flex gap-3 text-sm leading-relaxed text-[#eee4d8]/80"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-[#e3a073]" />{item}</li>)}</ul></article>; }
 
-function App() { const page = currentPage(); if (page === "cinematography") return <CinematographyPage />; if (page === "about") return <AboutPage />; if (page === "contact") return <ContactPage />; return <PhotographyPage />; }
+function ContactPageV2() {
+  return <Layout page="contact">
+    <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
+      <div className="grid gap-8 border-y border-white/10 py-12 md:grid-cols-[1fr_auto]">
+        <div><p className="text-xs uppercase tracking-[.28em] text-[#e3a073]">Get in touch</p><h1 className="mt-3 font-serif text-5xl text-primary">Tell me about your date.</h1><p className="mt-5 max-w-xl text-muted-foreground">Whether you are planning a wedding or staffing one, email or call with the date, location, and the kind of support you need.</p></div>
+        <div className="flex flex-col justify-center gap-4 text-sm"><a className="inline-flex items-center gap-3 hover:text-[#e3a073]" href={`mailto:${profile.email}`}><Mail className="size-5" />{profile.email}</a><a className="inline-flex items-center gap-3 hover:text-[#e3a073]" href={`tel:${profile.phone.replace(/\D/g, "")}`}><Phone className="size-5" />{profile.phone}</a><span className="inline-flex items-center gap-3 text-muted-foreground"><MapPin className="size-5" />{profile.location}</span></div>
+      </div>
+    </section>
+    <section className="border-t border-white/10 bg-[#211713]"><div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24"><SectionHeading eyebrow="Wedding coverage" title="Looking for my first five weddings." copy="A limited introductory offer for couples who want thoughtful wedding photo or video coverage on a realistic budget." /><div className="mt-12 grid gap-8"><div className="bg-[#e3a073] p-8 text-[#1b120e]"><p className="text-xs uppercase tracking-[.25em]">Introductory wedding rate</p><p className="mt-4 font-serif text-6xl leading-none">$800-$950</p><p className="mt-5 max-w-xl text-sm leading-relaxed">For the first five weddings I book. Exact pricing is based on the coverage time, travel, and needs of your day.</p></div><div className="grid gap-8 lg:grid-cols-2"><Deliverables title="Photography deliverables" items={["Wedding-day coverage tailored to your timeline", "A curated gallery of edited high-resolution images", "Private online gallery for viewing and downloading", "A planning conversation before the wedding day"]} /><Deliverables title="Video deliverables" items={["A 3-10 minute highlight film", "All footage captured from the wedding day", "A planning conversation to align on the feel of the film", "Delivery in a private online gallery"]} /></div></div></div></section>
+    <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24"><p className="text-xs uppercase tracking-[.28em] text-[#e3a073]">For studios and lead creatives</p><h2 className="mt-3 font-serif text-5xl text-primary">Second shooter support for photo or video.</h2><p className="mt-5 max-w-2xl leading-relaxed text-muted-foreground">Available to assist, shadow, or second-shoot weddings alongside photographers and videographers. I work calmly, take direction well, and show up ready to support your workflow.</p></section>
+  </Layout>;
+}
+
+function App() { const page = currentPage(); if (page === "cinematography") return <CinematographyPage />; if (page === "about") return <AboutPage />; if (page === "contact") return <ContactPageV2 />; return <PhotographyPage />; }
 
 createRoot(document.getElementById("root")!).render(<StrictMode><App /></StrictMode>);
