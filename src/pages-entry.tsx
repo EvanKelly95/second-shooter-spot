@@ -105,10 +105,11 @@ function GearList() {
 
 function PhotographyPage() {
   return <Layout page="photography">
-    <section className="border-b border-white/10 bg-[#1a120f]">
-      <div className="mx-auto max-w-7xl px-5 py-10 md:px-8 md:py-16">
-        <div className="overflow-hidden bg-[#100c0a]"><img src={asset("portfolio/himali-brian-05.jpg")} alt="Wedding portrait by Evan Kelly" className="h-auto max-h-[78svh] w-full object-contain" /></div>
-        <div className="mt-8 max-w-2xl"><p className="text-xs uppercase tracking-[0.3em] text-[#e3a073]">Wedding & portrait photography</p><h1 className="mt-5 font-serif text-6xl leading-[.85] text-primary sm:text-8xl">Honest moments, beautifully held.</h1><p className="mt-6 max-w-lg leading-relaxed text-[#eee4d8]/82">A growing collection of intimate wedding, portrait, and family work from around New Jersey.</p></div>
+    <section className="border-b border-white/10 bg-[#100c0a]">
+      <div className="relative isolate mx-auto flex min-h-[min(78svh,960px)] max-w-7xl items-end overflow-hidden bg-[#100c0a] px-5 py-10 md:px-8 md:py-16">
+        <img src={asset("portfolio/himali-brian-05.jpg")} alt="Wedding portrait by Evan Kelly" className="absolute inset-0 -z-20 h-full w-full object-contain" />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(16,12,10,.84)_0%,rgba(16,12,10,.42)_48%,rgba(16,12,10,.08)_100%),linear-gradient(0deg,rgba(16,12,10,.84)_0%,transparent_56%)]" />
+        <div className="max-w-2xl"><p className="text-xs uppercase tracking-[0.3em] text-[#e3a073]">Wedding & portrait photography</p><h1 className="mt-5 font-serif text-6xl leading-[.85] text-primary sm:text-8xl">Honest moments, beautifully held.</h1><p className="mt-6 max-w-lg leading-relaxed text-[#eee4d8]/82">A growing collection of intimate wedding, portrait, and family work from around New Jersey.</p></div>
       </div>
     </section>
     {photoCollections.map((collection) => <section key={collection.name} className="border-t border-white/10">
