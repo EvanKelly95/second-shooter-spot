@@ -6,4 +6,15 @@ import tsConfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   base: "/second-shooter-spot/",
   plugins: [react(), tailwindcss(), tsConfigPaths()],
+  build: {
+    rollupOptions: {
+      input: {
+        home: "index.html",
+        photography: "photography/index.html",
+        cinematography: "cinematography/index.html",
+        about: "about/index.html",
+        contact: "contact/index.html",
+      },
+    },
+  },
 });
