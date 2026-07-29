@@ -21,12 +21,17 @@ const photoCollections = [
   {
     name: "Himali & Brian",
     kind: "Courthouse wedding",
-    images: ["himali-brian-01.jpg", "himali-brian-02-crop.jpg", "himali-brian-03-crop.jpg", "himali-brian-04.jpg", "himali-brian-05.jpg"],
+    images: ["himali-brian-01.jpg", "himali-brian-02-crop.jpg", "himali-brian-03-crop.jpg", "himali-brian-04.jpg", "himali-brian-05.jpg", "himali-brian-06.jpg", "himali-brian-07.jpg", "himali-brian-08.jpg", "himali-brian-09.jpg"],
   },
   {
     name: "Family Portraits",
     kind: "Natural-light family session",
     images: ["family-01.jpg", "family-02.jpg", "family-03.jpg", "family-04.jpg"],
+  },
+  {
+    name: "Sam & Ruby",
+    kind: "Natural-light lifestyle portrait session",
+    images: ["sam-ruby-01.jpg", "sam-ruby-02.jpg", "sam-ruby-03.jpg", "sam-ruby-04.jpg"],
   },
 ];
 
@@ -118,7 +123,6 @@ function PhotographyPage() {
         <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">{collection.images.map((image, index) => <figure key={image} className="mb-5 break-inside-avoid overflow-hidden bg-[#251915] p-2"><img loading={index > 1 ? "lazy" : "eager"} className="h-auto w-full" src={asset(`portfolio/${image}`)} alt={`${collection.name} photograph ${index + 1}`} /></figure>)}</div>
       </div>
     </section>)}
-    <section className="border-t border-white/10 bg-[#211713]"><div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24"><div className="grid min-h-64 place-items-center border border-dashed border-[#e3a073]/35 bg-[#17100d] p-8 text-center"><div><p className="text-xs uppercase tracking-[0.28em] text-[#e3a073]">Next collection</p><h2 className="mt-3 font-serif text-5xl text-primary">Sam & Ruby</h2><p className="mt-4 text-sm text-muted-foreground">Photos coming soon.</p></div></div></div></section>
     <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24"><SectionHeading eyebrow="Equipment" title="What I bring." /><div className="mt-10"><GearList /></div></section>
   </Layout>;
 }
