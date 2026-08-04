@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  base: "/second-shooter-spot/",
+  base: "/evan-kelly-photo-video/",
   plugins: [react(), tailwindcss(), tsConfigPaths()],
   build: {
     rollupOptions: {
