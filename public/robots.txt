@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://evankelly95.github.io/evan-kelly-photo-video/sitemap.xml
