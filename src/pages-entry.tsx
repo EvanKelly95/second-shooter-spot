@@ -5,7 +5,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import "./styles.css";
 import { about, equipment, experience as existingExperience, profile } from "./data/portfolio";
 
-type Page = "home" | "photography" | "cinematography" | "about" | "contact";
+type Page = "home" | "photography" | "cinematography" | "about" | "contact" | "weddings";
 
 const basePath = import.meta.env.BASE_URL;
 const asset = (path: string) => `${basePath}${path}`;
@@ -58,6 +58,7 @@ function currentPage(): Page {
   if (path.includes("cinematography")) return "cinematography";
   if (path.includes("about")) return "about";
   if (path.includes("contact")) return "contact";
+  if (path.includes("nj-wedding-photography-video")) return "weddings";
   if (path.includes("photography")) return "photography";
   return "home";
 }
@@ -138,7 +139,7 @@ function HomePage() {
         <div className="space-y-5 text-base leading-relaxed text-muted-foreground md:pt-2">
           <p>I create honest wedding photographs and films for couples who want their day documented with care, without turning it into a production. I am currently accepting a limited number of introductory wedding bookings across New Jersey.</p>
           <p>I also work with artists, creators, photographers, and production teams on cinematography, editing, portraiture, and dependable second-shooter support.</p>
-          <a href={asset("contact/")} className="inline-block border-b border-[#e3a073] pb-2 text-xs uppercase tracking-[.2em] text-primary transition hover:text-[#e3a073]">Wedding offer & services</a>
+          <a href={asset("nj-wedding-photography-video/")} className="inline-block border-b border-[#e3a073] pb-2 text-xs uppercase tracking-[.2em] text-primary transition hover:text-[#e3a073]">Affordable NJ wedding coverage</a>
         </div>
       </div>
     </section>
@@ -270,6 +271,69 @@ function ContactPageV2() {
   </Layout>;
 }
 
-function App() { const page = currentPage(); if (page === "photography") return <PhotographyPage />; if (page === "cinematography") return <CinematographyPage />; if (page === "about") return <AboutPageV2 />; if (page === "contact") return <ContactPageV2 />; return <HomePage />; }
+const weddingServiceAreas = [
+  "Atlantic Highlands",
+  "Middletown",
+  "Red Bank",
+  "Long Branch",
+  "Asbury Park",
+  "Freehold",
+  "Monmouth County",
+  "The Jersey Shore",
+];
+
+function WeddingsPage() {
+  return <Layout page="weddings">
+    <section className="relative isolate overflow-hidden border-b border-white/10 bg-[#100c0a]">
+      <img src={asset("portfolio/himali-brian-01.jpg")} alt="Affordable New Jersey wedding photography by Evan Kelly" className="absolute inset-0 -z-20 h-full w-full object-cover object-[58%_center]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(13,9,8,.97)_0%,rgba(13,9,8,.82)_42%,rgba(13,9,8,.28)_78%),linear-gradient(0deg,rgba(13,9,8,.82)_0%,transparent_62%)]" />
+      <div className="mx-auto flex min-h-[76svh] max-w-7xl items-end px-5 py-16 md:items-center md:px-8 md:py-24">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-[.3em] text-[#e3a073]">Affordable wedding photography & videography in New Jersey</p>
+          <h1 className="mt-5 max-w-[12ch] font-serif text-6xl leading-[.86] text-primary sm:text-8xl">Wedding coverage built around your day.</h1>
+          <p className="mt-7 max-w-2xl text-base leading-relaxed text-[#eee4d8]/84 md:text-lg">Thoughtful photo or video coverage for New Jersey couples who want their wedding documented with care while working within a realistic budget.</p>
+          <a href={asset("contact/")} className="mt-9 inline-block border-b border-[#e3a073] pb-2 text-xs uppercase tracking-[.2em] text-primary transition hover:text-[#e3a073]">Check your date</a>
+        </div>
+      </div>
+    </section>
+
+    <section className="border-b border-white/10 bg-[#17110e]">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[.8fr_1.2fr] md:px-8 md:py-24">
+        <div><p className="text-xs uppercase tracking-[.28em] text-[#e3a073]">Limited introductory offer</p><h2 className="mt-4 font-serif text-6xl text-primary">$800-$950</h2><p className="mt-3 text-sm text-muted-foreground">Available for my first three wedding bookings.</p></div>
+        <div className="space-y-5 leading-relaxed text-muted-foreground"><p>This introductory rate is designed for couples planning a courthouse wedding, intimate celebration, or wedding day on a tighter budget. Final pricing depends on coverage time, travel, and whether you need photography or videography.</p><p>Every booking begins with a consultation so the timeline, priorities, important people, and desired visual style are clear before the wedding day.</p></div>
+      </div>
+    </section>
+
+    <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
+      <SectionHeading eyebrow="Coverage options" title="Photography or film, kept clear and personal." />
+      <div className="mt-12 grid gap-8 lg:grid-cols-2">
+        <Deliverables title="Wedding photography" items={["Pre-wedding consultation", "Coverage tailored to your timeline", "Curated, professionally edited high-resolution images", "Private online gallery for viewing and downloading"]} />
+        <Deliverables title="Wedding videography" items={["Creative consultation", "A 3-10 minute wedding highlight film", "All footage captured during the wedding day", "Private online delivery"]} />
+      </div>
+    </section>
+
+    <section className="border-y border-white/10 bg-[#211713]">
+      <div className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-20">
+        <p className="text-xs uppercase tracking-[.28em] text-[#e3a073]">Serving the Jersey Shore and beyond</p>
+        <h2 className="mt-3 max-w-3xl font-serif text-5xl leading-[.94] text-primary">Local coverage from Atlantic Highlands.</h2>
+        <p className="mt-5 max-w-3xl leading-relaxed text-muted-foreground">Based in Atlantic Highlands and available throughout Monmouth County, the Jersey Shore, and nearby New Jersey communities. Travel outside these areas can be discussed during your consultation.</p>
+        <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#eee4d8]/78">{weddingServiceAreas.map((area) => <li key={area}>{area}</li>)}</ul>
+      </div>
+    </section>
+
+    <section className="mx-auto max-w-7xl px-5 py-16 md:px-8 md:py-24">
+      <p className="text-xs uppercase tracking-[.28em] text-[#e3a073]">Common questions</p>
+      <h2 className="mt-3 font-serif text-5xl text-primary">Before you reach out.</h2>
+      <dl className="mt-10 divide-y divide-white/10 border-y border-white/10">
+        <div className="grid gap-3 py-7 md:grid-cols-[.7fr_1.3fr]"><dt className="font-serif text-2xl text-primary">Is the introductory price guaranteed?</dt><dd className="text-sm leading-relaxed text-muted-foreground">The $800-$950 range applies to the first three qualifying wedding bookings. Your exact quote depends on hours, travel, and requested coverage.</dd></div>
+        <div className="grid gap-3 py-7 md:grid-cols-[.7fr_1.3fr]"><dt className="font-serif text-2xl text-primary">Can we book both photo and video?</dt><dd className="text-sm leading-relaxed text-muted-foreground">Contact me with your date and priorities. I will explain what can be covered personally and whether additional trusted support would be appropriate.</dd></div>
+        <div className="grid gap-3 py-7 md:grid-cols-[.7fr_1.3fr]"><dt className="font-serif text-2xl text-primary">How do we check availability?</dt><dd className="text-sm leading-relaxed text-muted-foreground">Call, text, or email with your wedding date, location, estimated coverage time, and whether you are looking for photography or videography.</dd></div>
+      </dl>
+      <div className="mt-12 flex flex-wrap gap-x-8 gap-y-4 text-sm"><a className="border-b border-[#e3a073] pb-2 text-primary hover:text-[#e3a073]" href={`tel:${profile.phone.replace(/\D/g, "")}`}>Call or text {profile.phone}</a><a className="border-b border-[#e3a073] pb-2 text-primary hover:text-[#e3a073]" href={`mailto:${profile.email}`}>{profile.email}</a></div>
+    </section>
+  </Layout>;
+}
+
+function App() { const page = currentPage(); if (page === "photography") return <PhotographyPage />; if (page === "cinematography") return <CinematographyPage />; if (page === "about") return <AboutPageV2 />; if (page === "contact") return <ContactPageV2 />; if (page === "weddings") return <WeddingsPage />; return <HomePage />; }
 
 createRoot(document.getElementById("root")!).render(<StrictMode><App /></StrictMode>);

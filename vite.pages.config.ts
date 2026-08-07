@@ -14,6 +14,7 @@ export default defineConfig({
         cinematography: "cinematography/index.html",
         about: "about/index.html",
         contact: "contact/index.html",
+        weddings: "nj-wedding-photography-video/index.html",
       },
     },
   },
